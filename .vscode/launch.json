@@ -2,21 +2,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
+      "name": "Gere: Python Local Server (8080)",
+      "type": "debugpy",
       "request": "launch",
-      "name": "Gere: Start Server (Wrangler 8080)",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "cwd": "${workspaceFolder}",
-      "console": "integratedTerminal",
-      "skipFiles": ["<node_internals>/**"]
-    },
-    {
-      "type": "chrome",
-      "request": "launch",
-      "name": "Gere: Launch Chrome (localhost:8080)",
-      "url": "http://localhost:8080",
-      "webRoot": "${workspaceFolder}/public"
+      "program": "${workspaceFolder}/run_local.py",
+      "console": "integratedTerminal"
     }
   ]
 }
