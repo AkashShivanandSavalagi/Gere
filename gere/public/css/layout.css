@@ -1,0 +1,290 @@
+.app-shell {
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen {
+  width: 100%;
+  max-width: 560px;
+  min-height: 100dvh;
+  padding:
+    calc(14px + env(safe-area-inset-top, 0px))
+    calc(16px + env(safe-area-inset-right, 0px))
+    calc(18px + env(safe-area-inset-bottom, 0px))
+    calc(16px + env(safe-area-inset-left, 0px));
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- INTRO SPLASH --- */
+.splash-screen {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+  overflow: visible;
+}
+
+.splash-title-wrap {
+  overflow: visible;
+  padding-top: 0.3em;
+}
+
+.splash-title {
+  font-family: var(--font-kannada);
+  font-size: clamp(3.4rem, 12vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1.5;
+  padding-top: 0.3em;
+  overflow: visible;
+  color: var(--ink-primary);
+  letter-spacing: 0.02em;
+}
+
+.splash-subtitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--ink-secondary);
+}
+
+/* --- HOME SCREEN --- */
+.home-screen {
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: visible;
+}
+
+.brand-kn {
+  font-family: var(--font-kannada);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+  padding-top: 0.15em;
+  overflow: visible;
+}
+
+.brand-kn-compact {
+  font-size: 1.2rem;
+}
+
+.brand-en {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--ink-muted);
+}
+
+.home-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.home-modes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.home-footer-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --- SETUP / LOBBY SCREENS --- */
+.setup-screen {
+  gap: 14px;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 44px;
+}
+
+.setup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 440px) {
+  .setup-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel-centered {
+  align-items: center;
+  text-align: center;
+}
+
+/* --- GAME SCREEN (Exact 100dvh fit across Mobile, Laptop, Tablet & PC) --- */
+.game-screen {
+  height: 100dvh;
+  max-height: 100dvh;
+  padding:
+    calc(10px + env(safe-area-inset-top, 0px))
+    calc(14px + env(safe-area-inset-right, 0px))
+    calc(12px + env(safe-area-inset-bottom, 0px))
+    calc(14px + env(safe-area-inset-left, 0px));
+  justify-content: space-between;
+  gap: 6px;
+  overflow: hidden;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.game-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.game-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.players-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.timers-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 36px;
+  flex-shrink: 0;
+}
+
+.timers-row:empty {
+  display: none;
+}
+
+.board-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.board-frame {
+  position: relative;
+  width: min(88vw, 52dvh, 440px);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  background: var(--board-bg);
+  border: 2px solid var(--board-border);
+  box-shadow: var(--shadow-md);
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.game-status-bar {
+  text-align: center;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modal-actions-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --- TABLETS & LARGE DESKTOP SCREENS --- */
+@media (min-width: 768px) and (min-height: 760px) {
+  .screen {
+    max-width: 640px;
+  }
+
+  .board-frame {
+    width: min(86vw, 54dvh, 440px);
+  }
+}
+
+/* --- COMPACT LANDSCAPE VIEWPORTS (e.g., Phones rotated sideways) --- */
+@media (max-height: 520px) and (orientation: landscape) {
+  .game-screen {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto 1fr;
+    column-gap: 14px;
+    row-gap: 6px;
+    align-items: center;
+  }
+
+  .game-topbar {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .players-row {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .timers-row {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .game-status-bar {
+    grid-column: 1;
+    grid-row: 4;
+    align-self: end;
+  }
+
+  .board-stage {
+    grid-column: 2;
+    grid-row: 1 / 5;
+    height: 100%;
+  }
+
+  .board-frame {
+    width: min(86dvh, 46vw);
+  }
+}

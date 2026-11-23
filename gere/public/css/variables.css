@@ -1,0 +1,148 @@
+/* Gere — Signature Dual Themes (Strictly No Gold, No Generic Pure Black/White) */
+
+:root,
+[data-theme='light'] {
+  /* Warm Barley / Architectural Linen */
+  --bg-base: #ece5d8;
+  --bg-grad-a: #f3ede2;
+  --bg-grad-b: #e2d8c7;
+  --surface-card: #f7f3eb;
+  --surface-elevated: #fbf8f2;
+  --surface-muted: #e6dece;
+  --border-subtle: rgba(54, 42, 31, 0.14);
+  --border-strong: rgba(54, 42, 31, 0.28);
+
+  --ink-primary: #251d16;
+  --ink-secondary: #594c3e;
+  --ink-muted: #7c6f60;
+
+  /* Deep Forest-Teal Accent */
+  --accent-primary: #1d5b54;
+  --accent-hover: #164842;
+  --accent-soft: rgba(29, 91, 84, 0.13);
+  --accent-ink: #f7f3eb;
+
+  --danger: #9f332c;
+  --danger-soft: rgba(159, 51, 44, 0.12);
+  --success: #226b54;
+
+  --shadow-sm: 0 2px 8px rgba(37, 29, 22, 0.07);
+  --shadow-md: 0 10px 28px rgba(37, 29, 22, 0.11);
+  --shadow-lg: 0 18px 42px rgba(37, 29, 22, 0.16);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-kannada: 'Noto Sans Kannada', 'Tunga', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+[data-theme='dark'] {
+  /* Deep Midnight Dark Blue / Slate (Never #000000) */
+  --bg-base: #0e1726;
+  --bg-grad-a: #142034;
+  --bg-grad-b: #0b1220;
+  --surface-card: #162338;
+  --surface-elevated: #1c2c45;
+  --surface-muted: #111c2e;
+  --border-subtle: rgba(226, 234, 246, 0.12);
+  --border-strong: rgba(226, 234, 246, 0.24);
+
+  --ink-primary: #edf2f8;
+  --ink-secondary: #b4c2d6;
+  --ink-muted: #8294ad;
+
+  /* Calm Sea-Teal Accent */
+  --accent-primary: #3b9d92;
+  --accent-hover: #4db3a7;
+  --accent-soft: rgba(59, 157, 146, 0.18);
+  --accent-ink: #0d1826;
+
+  --danger: #d96b63;
+  --danger-soft: rgba(217, 107, 99, 0.16);
+  --success: #4ab38c;
+
+  --shadow-sm: 0 2px 10px rgba(4, 9, 18, 0.35);
+  --shadow-md: 0 12px 30px rgba(4, 9, 18, 0.45);
+  --shadow-lg: 0 20px 48px rgba(4, 9, 18, 0.6);
+}
+
+/* 6 Classic Board Surfaces */
+[data-board='parchment'] {
+  --board-bg: #f1e8d8;
+  --board-border: #cbbca4;
+  --board-line: #7a6b58;
+  --board-node-fill: #f9f4ea;
+  --board-node-stroke: #6e5f4d;
+  --board-valid-ring: #1d5b54;
+  --board-valid-fill: rgba(29, 91, 84, 0.22);
+  --board-win-line: #1d5b54;
+}
+
+[data-board='walnut'] {
+  --board-bg: #4b3526;
+  --board-border: #332217;
+  --board-line: #b99e84;
+  --board-node-fill: #5c4331;
+  --board-node-stroke: #cfb79f;
+  --board-valid-ring: #72cfc3;
+  --board-valid-fill: rgba(114, 207, 195, 0.28);
+  --board-win-line: #72cfc3;
+}
+
+[data-board='slate'] {
+  --board-bg: #1e2d44;
+  --board-border: #131e2e;
+  --board-line: #7d96b8;
+  --board-node-fill: #273a57;
+  --board-node-stroke: #a5bbd8;
+  --board-valid-ring: #5fd1c3;
+  --board-valid-fill: rgba(95, 209, 195, 0.26);
+  --board-win-line: #5fd1c3;
+}
+
+[data-board='sage'] {
+  --board-bg: #cad4c7;
+  --board-border: #9eae9a;
+  --board-line: #495947;
+  --board-node-fill: #dde5da;
+  --board-node-stroke: #3f4f3d;
+  --board-valid-ring: #17544d;
+  --board-valid-fill: rgba(23, 84, 77, 0.24);
+  --board-win-line: #17544d;
+}
+
+[data-board='forest'] {
+  --board-bg: #1e3b34;
+  --board-border: #132823;
+  --board-line: #8ab5a8;
+  --board-node-fill: #284c43;
+  --board-node-stroke: #b1d4c9;
+  --board-valid-ring: #8ce3d5;
+  --board-valid-fill: rgba(140, 227, 213, 0.28);
+  --board-win-line: #8ce3d5;
+}
+
+[data-board='obsidian'] {
+  --board-bg: #1c222d;
+  --board-border: #11151d;
+  --board-line: #6d7a8f;
+  --board-node-fill: #262e3d;
+  --board-node-stroke: #9aa7bd;
+  --board-valid-ring: #52c7b8;
+  --board-valid-fill: rgba(82, 199, 184, 0.28);
+  --board-win-line: #52c7b8;
+}
+
+/* 8 Curated Pawn Colors (No Gold) */
+.pawn-teal { --pawn-main: #1f7a70; --pawn-dark: #124d46; --pawn-light: #5ec2b6; }
+.pawn-terracotta { --pawn-main: #c45a3d; --pawn-dark: #853520; --pawn-light: #e8947c; }
+.pawn-indigo { --pawn-main: #3f5aa8; --pawn-dark: #253870; --pawn-light: #819be0; }
+.pawn-crimson { --pawn-main: #a83344; --pawn-dark: #6b1b27; --pawn-light: #e07988; }
+.pawn-emerald { --pawn-main: #2d7a4f; --pawn-dark: #194d30; --pawn-light: #6ec493; }
+.pawn-slate { --pawn-main: #53647a; --pawn-dark: #313d4d; --pawn-light: #93a6bd; }
+.pawn-plum { --pawn-main: #7b4880; --pawn-dark: #4c2850; --pawn-light: #b986be; }
+.pawn-ochre { --pawn-main: #8f5c38; --pawn-dark: #5c371d; --pawn-light: #c99672; }

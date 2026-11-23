@@ -1,0 +1,10 @@
+node_modules/
+.wrangler/
+.dev.vars
+.env
+*.log
+.DS_Store
+Thumbs.db
+__pycache__/
+dist/
+build/

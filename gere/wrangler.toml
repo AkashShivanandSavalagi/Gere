@@ -1,0 +1,21 @@
+name = "gere"
+main = "src/worker.js"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api/*", "/ws/*"]
+
+[[durable_objects.bindings]]
+name = "GERE_ROOM"
+class_name = "GereRoom"
+
+[[durable_objects.bindings]]
+name = "GERE_REVIEWS"
+class_name = "GereReviews"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["GereRoom", "GereReviews"]
