@@ -41,6 +41,8 @@ const config = {
 let gameState = createGameState();
 let matchClock = null;
 let inputLocked = false;
+let aiMoveHighlight = null;
+let aiMoveHighlightTimer = null;
 let lastTapAt = 0;
 let onlineClient = null;
 let onlineSnapshot = null;
@@ -170,6 +172,7 @@ function renderCurrentGame() {
     p1Color: config.p1.color,
     p2Color: config.p2.color,
     winLine: gameState.winLine,
+    aiMoveHighlight,
     onNodeClick: handleNodeClick,
   });
 
@@ -213,6 +216,9 @@ function startLocalOrAiMatch() {
   stopOnlineLoops();
   closeGameOver();
   if (matchClock) matchClock.stop();
+  if (aiMoveHighlightTimer !== null) clearTimeout(aiMoveHighlightTimer);
+  aiMoveHighlightTimer = null;
+  aiMoveHighlight = null;
 
   gameState = createGameState();
   inputLocked = false;
@@ -242,22 +248,36 @@ function triggerAiTurn() {
   if (config.mode !== 'ai' || gameState.turn !== 2 || gameState.winner !== 0 || gameState.endReason) {
     return;
   }
+  if (aiMoveHighlightTimer !== null) clearTimeout(aiMoveHighlightTimer);
+  aiMoveHighlightTimer = null;
+  aiMoveHighlight = null;
   inputLocked = true;
   setStatus('PC is thinking...');
   setTimeout(() => {
     const act = chooseAiMove(gameState, config.aiLevel);
     if (act) {
       if (act.type === 'place') applyPlacement(gameState, act.node);
-      else applyMovement(gameState, act.from, act.to);
+      else {
+        if (applyMovement(gameState, act.from, act.to)) {
+          aiMoveHighlight = { from: act.from, to: act.to };
+        }
+      }
     }
-    inputLocked = false;
     if (matchClock) matchClock.setTurn(gameState.turn);
     if (gameState.winner !== 0) {
       finishLocalMatch('win', gameState.winner);
     } else {
       renderCurrentGame();
     }
-  }, 180);
+    inputLocked = false;
+    if (aiMoveHighlight !== null) {
+      aiMoveHighlightTimer = setTimeout(() => {
+        aiMoveHighlight = null;
+        aiMoveHighlightTimer = null;
+        renderCurrentGame();
+      }, 1000);
+    }
+  }, 850);
 }
 
 // --- UNIFIED NODE CLICK HANDLER (WITH DEBOUNCE & TURN-LOCK) ---

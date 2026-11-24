@@ -420,6 +420,16 @@
   box-shadow: 0 0 0 4px var(--board-valid-fill);
 }
 
+.board-node.ai-move-from {
+  outline: 3px dashed var(--board-valid-ring);
+  outline-offset: 3px;
+}
+
+.board-node.ai-move-to .pawn-piece {
+  transform: translateY(-5px) scale(1.12);
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.42));
+}
+
 .board-node.selected .pawn-piece {
   transform: translateY(-5px) scale(1.1);
   filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.42));

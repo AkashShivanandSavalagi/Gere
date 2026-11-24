@@ -1,0 +1,25 @@
+{
+  "files.associations": {
+    "_headers": "plaintext",
+    "_redirects": "plaintext",
+    ".dev.vars": "dotenv",
+    ".dev.vars.example": "dotenv"
+  },
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": false,
+  "[plaintext]": {
+    "editor.wordWrap": "off"
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.wrangler": true,
+    "**/package-lock.json": true
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.wrangler/**": true
+  }
+}

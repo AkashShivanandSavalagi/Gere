@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1d5b54" />
+  <title>ಗೆರೆ — GERE</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/icon-192.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+Kannada:wght@700&display=swap" rel="stylesheet" />
+  <script src="./js/theme-init.js"></script>
+  <link rel="stylesheet" href="./css/variables.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/layout.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+</head>
+<body>
+  <div class="bg-canvas" aria-hidden="true"></div>
+
+  <main class="app-shell">
+    <!-- 1. INTRO SPLASH SCREEN -->
+    <section id="screen-splash" class="screen splash-screen">
+      <div class="splash-title-wrap">
+        <h1 class="splash-title">ಗೆರೆ</h1>
+      </div>
+      <p class="splash-subtitle">THINK · MOVE · WIN</p>
+    </section>
+
+    <!-- 2. HOME SCREEN -->
+    <section id="screen-home" class="screen home-screen hidden">
+      <header class="home-header">
+        <div class="brand-lockup">
+          <span class="brand-kn">ಗೆರೆ</span>
+          <span class="brand-en">GERE</span>
+        </div>
+        <button id="btn-home-theme" class="icon-btn" type="button" aria-label="Toggle theme"></button>
+      </header>
+
+      <div class="home-hero">
+        <div class="emblem-wrap" aria-hidden="true">
+          <svg class="emblem-svg" viewBox="0 0 100 100">
+            <line class="emblem-line" x1="20" y1="20" x2="80" y2="20" />
+            <line class="emblem-line" x1="20" y1="50" x2="80" y2="50" />
+            <line class="emblem-line" x1="20" y1="80" x2="80" y2="80" />
+            <line class="emblem-line" x1="20" y1="20" x2="20" y2="80" />
+            <line class="emblem-line" x1="50" y1="20" x2="50" y2="80" />
+            <line class="emblem-line" x1="80" y1="20" x2="80" y2="80" />
+            <line class="emblem-line" x1="20" y1="20" x2="80" y2="80" />
+            <line class="emblem-line" x1="80" y1="20" x2="20" y2="80" />
+            <circle class="emblem-node" cx="20" cy="20" r="5" />
+            <circle class="emblem-node" cx="50" cy="20" r="5" />
+            <circle class="emblem-node" cx="80" cy="20" r="5" />
+            <circle class="emblem-node" cx="20" cy="50" r="5" />
+            <circle class="emblem-node" cx="50" cy="50" r="5" />
+            <circle class="emblem-node" cx="80" cy="50" r="5" />
+            <circle class="emblem-node" cx="20" cy="80" r="5" />
+            <circle class="emblem-node" cx="50" cy="80" r="5" />
+            <circle class="emblem-node" cx="80" cy="80" r="5" />
+            <circle id="emblem-pawn" class="emblem-pawn" cx="50" cy="50" r="7.5" />
+          </svg>
+        </div>
+        <p class="splash-subtitle">THINK · MOVE · WIN</p>
+      </div>
+
+      <div class="home-modes">
+        <button id="btn-mode-local" class="mode-card" type="button">
+          <div>
+            <div class="mode-card-title">Local Multiplayer</div>
+            <div class="mode-card-desc">Two players on this device with custom clocks</div>
+          </div>
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <button id="btn-mode-ai" class="mode-card" type="button">
+          <div>
+            <div class="mode-card-title">Play with PC</div>
+            <div class="mode-card-desc">4 AI levels from Easy to Impossible</div>
+          </div>
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <button id="btn-mode-online" class="mode-card" type="button">
+          <div>
+            <div class="mode-card-title">Online Multiplayer</div>
+            <div class="mode-card-desc">Real-time room code &amp; QR invite</div>
+          </div>
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <footer class="home-footer-actions">
+        <button id="btn-open-rules" class="btn btn-ghost" type="button">Rules</button>
+        <button id="btn-open-reviews" class="btn btn-ghost" type="button">Rate Gere</button>
+        <button id="btn-install-pwa" class="btn btn-secondary hidden" type="button">DOWNLOAD APP</button>
+      </footer>
+    </section>
+
+    <!-- 3. LOCAL SETUP SCREEN -->
+    <section id="screen-local-setup" class="screen setup-screen hidden">
+      <div class="top-nav">
+        <button id="btn-local-back" class="icon-btn" type="button" aria-label="Back">←</button>
+        <strong>Local Multiplayer</strong>
+        <div class="spacer-44" aria-hidden="true"></div>
+      </div>
+
+      <div class="setup-grid">
+        <div class="panel">
+          <span class="panel-label">Player 1</span>
+          <input id="input-p1-name" class="text-input" type="text" maxlength="18" placeholder="NAME (optional)" />
+          <div id="swatches-p1" class="swatch-grid"></div>
+        </div>
+        <div class="panel">
+          <span class="panel-label">Player 2</span>
+          <input id="input-p2-name" class="text-input" type="text" maxlength="18" placeholder="NAME (optional)" />
+          <div id="swatches-p2" class="swatch-grid"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <span class="panel-label">Time Control</span>
+        <div id="local-time-mode" class="pill-group">
+          <button class="pill-btn active" type="button" data-val="none">None</button>
+          <button class="pill-btn" type="button" data-val="combined">Combined</button>
+          <button class="pill-btn" type="button" data-val="separate">Separate</button>
+        </div>
+        <div id="local-time-mins" class="pill-group hidden">
+          <button class="pill-btn" type="button" data-val="2">2 min</button>
+          <button class="pill-btn active" type="button" data-val="5">5 min</button>
+          <button class="pill-btn" type="button" data-val="9">9 min</button>
+          <button class="pill-btn" type="button" data-val="12">12 min</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <span class="panel-label">Board Surface</span>
+        <div id="local-board-picker" class="pill-group"></div>
+      </div>
+
+      <button id="btn-start-local" class="btn btn-primary" type="button">Start Match</button>
+    </section>
+
+    <!-- 4. AI SETUP SCREEN -->
+    <section id="screen-ai-setup" class="screen setup-screen hidden">
+      <div class="top-nav">
+        <button id="btn-ai-back" class="icon-btn" type="button" aria-label="Back">←</button>
+        <strong>Play with PC</strong>
+        <div class="spacer-44" aria-hidden="true"></div>
+      </div>
+
+      <div class="panel">
+        <span class="panel-label">Difficulty</span>
+        <div id="ai-level-group" class="pill-group">
+          <button class="pill-btn" type="button" data-val="easy">Easy</button>
+          <button class="pill-btn active" type="button" data-val="medium">Medium</button>
+          <button class="pill-btn" type="button" data-val="hard">Hard</button>
+          <button class="pill-btn" type="button" data-val="impossible">Impossible</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <span class="panel-label">Your Name &amp; Pawn Color</span>
+        <input id="input-ai-name" class="text-input" type="text" maxlength="18" placeholder="NAME (optional)" />
+        <div id="swatches-ai-p1" class="swatch-grid"></div>
+      </div>
+
+      <div class="panel">
+        <span class="panel-label">Board Surface</span>
+        <div id="ai-board-picker" class="pill-group"></div>
+      </div>
+
+      <button id="btn-start-ai" class="btn btn-primary" type="button">Start vs PC</button>
+    </section>
+
+    <!-- 5. ONLINE LOBBY SCREEN -->
+    <section id="screen-online-setup" class="screen setup-screen hidden">
+      <div class="top-nav">
+        <button id="btn-online-back" class="icon-btn" type="button" aria-label="Back">←</button>
+        <strong>Online Multiplayer</strong>
+        <div class="spacer-44" aria-hidden="true"></div>
+      </div>
+
+      <div class="panel">
+        <span class="panel-label">Your Name &amp; Pawn Color</span>
+        <input id="input-online-name" class="text-input" type="text" maxlength="18" placeholder="NAME (optional)" />
+        <div id="swatches-online" class="swatch-grid"></div>
+      </div>
+
+      <div class="panel">
+        <span class="panel-label">Create New Room</span>
+        <div id="online-time-mode" class="pill-group">
+          <button class="pill-btn active" type="button" data-val="none">No Clock</button>
+          <button class="pill-btn" type="button" data-val="combined">Combined</button>
+          <button class="pill-btn" type="button" data-val="separate">Separate</button>
+        </div>
+        <div id="online-time-mins" class="pill-group hidden">
+          <button class="pill-btn" type="button" data-val="2">2 min</button>
+          <button class="pill-btn active" type="button" data-val="5">5 min</button>
+          <button class="pill-btn" type="button" data-val="9">9 min</button>
+          <button class="pill-btn" type="button" data-val="12">12 min</button>
+        </div>
+        <button id="btn-create-room" class="btn btn-primary" type="button">Create Room</button>
+      </div>
+
+      <div class="panel">
+        <span class="panel-label">Join Existing Room</span>
+        <input id="input-room-code" class="text-input" type="text" maxlength="6" placeholder="Enter 6-character code" />
+        <button id="btn-join-room" class="btn btn-secondary" type="button">Join Room</button>
+      </div>
+
+      <p id="online-lobby-error" class="status-error" role="alert"></p>
+    </section>
+
+    <!-- 6. ONLINE WAITING SCREEN -->
+    <section id="screen-online-wait" class="screen setup-screen hidden">
+      <div class="top-nav">
+        <button id="btn-wait-cancel" class="icon-btn" type="button" aria-label="Cancel">←</button>
+        <strong>Waiting for Opponent</strong>
+        <div class="spacer-44" aria-hidden="true"></div>
+      </div>
+
+      <div class="panel panel-centered">
+        <span class="panel-label">Room Code</span>
+        <div id="wait-room-code" class="room-code-display">------</div>
+        <div id="wait-qr-box" class="qr-box"></div>
+        <button id="btn-copy-invite" class="btn btn-secondary" type="button">Copy Invite Link</button>
+        <p id="wait-status-text" class="mode-card-desc">Share the code or scan QR to join.</p>
+      </div>
+    </section>
+
+    <!-- 7. GAME SCREEN (Exact 100dvh Layout) -->
+    <section id="screen-game" class="screen game-screen hidden">
+      <header class="game-topbar">
+        <button id="btn-game-back" class="icon-btn" type="button" aria-label="Back to Home">←</button>
+        <div class="brand-lockup">
+          <span class="brand-kn brand-kn-compact">ಗೆರೆ</span>
+          <span class="brand-en">| GERE</span>
+        </div>
+        <div class="game-topbar-actions">
+          <button id="btn-game-board" class="icon-btn" type="button" aria-label="Switch Board Surface">▦</button>
+          <button id="btn-game-theme" class="icon-btn" type="button" aria-label="Toggle Theme"></button>
+          <button id="btn-game-restart" class="icon-btn" type="button" aria-label="Restart or Resign">↻</button>
+        </div>
+      </header>
+
+      <div class="players-row">
+        <div id="card-p1" class="player-card">
+          <div class="player-card-head">
+            <div class="player-id">
+              <span id="dot-p1" class="player-dot pawn-teal"></span>
+              <span id="name-p1" class="player-name">P1</span>
+            </div>
+            <span class="turn-badge">TURN</span>
+          </div>
+          <div class="player-stats">
+            <span id="pawns-p1">PAWNS 0/3</span>
+            <span id="moves-p1">MOVES 0</span>
+          </div>
+        </div>
+
+        <div id="card-p2" class="player-card">
+          <div class="player-card-head">
+            <div class="player-id">
+              <span id="dot-p2" class="player-dot pawn-terracotta"></span>
+              <span id="name-p2" class="player-name">P2</span>
+            </div>
+            <span class="turn-badge">TURN</span>
+          </div>
+          <div class="player-stats">
+            <span id="pawns-p2">PAWNS 0/3</span>
+            <span id="moves-p2">MOVES 0</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="timers-row" class="timers-row"></div>
+
+      <div class="board-stage">
+        <div id="board-frame" class="board-frame" data-board="parchment">
+          <svg class="board-svg" viewBox="0 0 300 300" aria-hidden="true">
+            <line class="board-line" x1="45" y1="45" x2="255" y2="45" />
+            <line class="board-line" x1="45" y1="150" x2="255" y2="150" />
+            <line class="board-line" x1="45" y1="255" x2="255" y2="255" />
+            <line class="board-line" x1="45" y1="45" x2="45" y2="255" />
+            <line class="board-line" x1="150" y1="45" x2="150" y2="255" />
+            <line class="board-line" x1="255" y1="45" x2="255" y2="255" />
+            <line class="board-line" x1="45" y1="45" x2="255" y2="255" />
+            <line class="board-line" x1="255" y1="45" x2="45" y2="255" />
+            <line id="win-line-svg" class="board-win-line hidden" x1="0" y1="0" x2="0" y2="0" />
+          </svg>
+          <div id="board-nodes" class="board-nodes-layer" role="grid" aria-label="Gere 3 by 3 board"></div>
+        </div>
+      </div>
+
+      <div id="game-status-bar" class="game-status-bar" role="status" aria-live="polite">
+        Place a pawn on any empty node
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL: GAME OVER -->
+  <div id="modal-gameover" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-card modal-card-centered">
+      <h2 id="gameover-title" class="modal-title">Match Complete</h2>
+      <p id="gameover-subtitle" class="mode-card-desc"></p>
+      <div class="modal-actions-row">
+        <button id="btn-gameover-rematch" class="btn btn-primary" type="button">Play Again</button>
+        <button id="btn-gameover-rate" class="btn btn-secondary" type="button">Rate Gere</button>
+        <button id="btn-gameover-home" class="btn btn-ghost" type="button">Home</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: RULES -->
+  <div id="modal-rules" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="top-nav">
+        <h2 class="modal-title">How to Play Gere</h2>
+        <button id="btn-close-rules" class="icon-btn" type="button" aria-label="Close">✕</button>
+      </div>
+      <p class="mode-card-desc">1. Each player has 3 pawns on a 9-node board.</p>
+      <p class="mode-card-desc">2. Placement: Alternate placing 1 pawn per turn onto any empty node.</p>
+      <p class="mode-card-desc">3. Movement: Select your pawn and move it along a connected line to an adjacent empty node. No jumping.</p>
+      <p class="mode-card-desc">4. Win: Align 3 of your pawns in a straight horizontal, vertical, or diagonal line. No move limit — matches end on a win, clock expiry, or the 21-minute hard deadline.</p>
+    </div>
+  </div>
+
+  <!-- MODAL: RATE GERE -->
+  <div id="modal-reviews" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="top-nav">
+        <h2 class="modal-title">Rate Gere</h2>
+        <button id="btn-close-reviews" class="icon-btn" type="button" aria-label="Close">✕</button>
+      </div>
+      <div id="reviews-summary" class="mode-card-desc">Loading ratings...</div>
+      <div id="stars-row" class="stars-row" role="radiogroup" aria-label="Star rating"></div>
+      <div id="review-verdict" class="verdict-label"></div>
+      <div id="review-vibes" class="pill-group"></div>
+      <input id="review-name" class="text-input" type="text" maxlength="24" placeholder="Your name (optional)" />
+      <textarea id="review-comment" class="text-input" rows="3" maxlength="300" placeholder="Share your thoughts..."></textarea>
+      <div class="review-submit-row">
+        <span id="review-counter" class="panel-label">0/300</span>
+        <button id="btn-submit-review" class="btn btn-primary" type="button">Submit</button>
+      </div>
+      <div id="reviews-list" class="reviews-list"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

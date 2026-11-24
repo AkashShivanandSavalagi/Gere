@@ -2,6 +2,8 @@ name = "gere"
 main = "src/worker.js"
 compatibility_date = "2024-11-01"
 compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+preview_urls = false
 
 [assets]
 directory = "./public"

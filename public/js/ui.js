@@ -66,6 +66,7 @@ export function renderBoard({
   board,
   selectedNode,
   validTargets,
+  aiMoveHighlight,
   p1Color,
   p2Color,
   winLine,
@@ -81,6 +82,8 @@ export function renderBoard({
     btn.className = `board-node node-pos-${i}`;
     if (selectedNode === i) btn.classList.add('selected');
     if (validSet.has(i)) btn.classList.add('valid-target');
+    if (aiMoveHighlight && aiMoveHighlight.from === i) btn.classList.add('ai-move-from');
+    if (aiMoveHighlight && aiMoveHighlight.to === i) btn.classList.add('ai-move-to');
     btn.setAttribute('aria-label', `Node ${i + 1}`);
 
     if (board[i] === 0) {
